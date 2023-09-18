@@ -1,5 +1,4 @@
-import static org.junit.Assert.*;
-
+import org.junit.Assert;
 import org.junit.Test;
 
 
@@ -18,31 +17,31 @@ public class BalancedBracketsTest {
     @Test
     public void testBalancedBrackets_balancedParentheses(){
         //assertTrue checks if the output value is true
-        assertTrue(balanced.balancedParentheses(balancedParentheses));
+        Assert.assertTrue(balanced.balancedParentheses(balancedParentheses));
     }
     @Test
     public void testBalancedBrackets_MoreOpenParentheses(){
         //assertFalse checks if the output value is false
-        assertFalse(balancedBrackets.balancedBrackets("([6)"));
+        Assert.assertFalse(balancedBrackets.balancedBrackets("([6)"));
     }
     @Test
     public void testBalancedBrackets_MoreClosedParentheses(){
-        assertFalse(balancedBrackets.balancedBrackets("([6)])"));
+        Assert.assertFalse(balancedBrackets.balancedBrackets("([6)])"));
     }
     @Test
     public void testBalancedBrackets_balancedSquareBrackets() {
-        assertTrue(balancedBrackets.balancedBrackets("[[6]]"));
+        Assert.assertTrue(balancedBrackets.balancedBrackets("[[6]]"));
     }
     @Test
     public void testBalancedBrackets_MoreOpenSquare() {
-        assertFalse(balancedBrackets.balancedBrackets("[[[[6]]"));
+        Assert.assertFalse(balancedBrackets.balancedBrackets("[[[[6]]"));
     }
     @Test
     public void testBalancedBrackets_balancedMixed() {
-        assertTrue(balancedBrackets.balancedBrackets("<[[(6)]]>"));
+        Assert.assertTrue(balancedBrackets.balancedBrackets("<[[(6)]]>"));
     }
     @Test
     public void testBalancedBrackets_MoreClosedMix() {
-        assertFalse(balancedBrackets.balancedBrackets("[{[6}}]]"));
+        Assert.assertFalse(balancedBrackets.balancedBrackets("[{[6}}]]"));
     }
 }

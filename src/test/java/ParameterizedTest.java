@@ -6,44 +6,45 @@ import org.junit.runners.Parameterized.Parameters;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
 
-//parameterized tests make it easier to write tests with many conditions
+
 @RunWith(Parameterized.class)
 public class ParameterizedTest {
+
     private String input;
     private boolean expectedOutput;
-    main.java.BalancedBrackets bb = new main.java.BalancedBrackets();
+    BalancedBrackets bb = new BalancedBrackets();
 
     public ParameterizedTest(String input, boolean expectedOutput) {
         this.input = input;
         this.expectedOutput = expectedOutput;
     }
 
-    @Parameterized.Parameters
+    @Parameters
     public static Collection<Object[]> testConditions() {
-        String balancedParentheses = "(6)";
-        String MoreOpenParentheses = "((6)";
-        String MoreClosedParentheses = "(6))";
-        String balancedSquareBrackets = "[[6]]";
-        String MoreOpenSquare = "[[6]";
-        String balancedMixed = "([6])";
-        String MoreClosedMixed = "([6]])";
+        String balancedPar = "()";
+        String moreOpenPar = "(()";
+        String moreClosedPar = "())";
+        String startClosedPar = ")(";
+        String emptyStr = "";
+        String mismatched = "<{<({>}>])";
+        String balancedMixed = "({[<>]})";
 
         Object[][] expectedOutputs = {
-                {balancedParentheses, true},
-                {MoreOpenParentheses, false},
-                {MoreClosedParentheses, false},
-                {balancedSquareBrackets, true},
-                {MoreOpenSquare, false},
-                {balancedMixed, true},
-                {MoreClosedMixed, false}
+                { balancedPar, true },
+                { moreOpenPar, false },
+                { moreClosedPar, false },
+                { emptyStr, true },
+                { startClosedPar, false },
+                { mismatched, false },
+                { balancedMixed, false }
         };
+
         return Arrays.asList(expectedOutputs);
+
     }
 
     @Test
     public void testBalancedBrackets() {
-        assertEquals(expectedOutput, bb.balancedBrackets(input));
-    }
+        assertEquals(expectedOutput, bb.balancedBrackets(input));    }
 }

@@ -1,5 +1,6 @@
-import static org.junit.Assert.*;
 
+
+import org.junit.Assert;
 import org.junit.Test;
 
 public class MissingNumberTest {
@@ -11,20 +12,20 @@ public class MissingNumberTest {
 
     @Test
     public void testMissingNumber_MissingMax(){
-        assertEquals(10, missNum.missingNumber(missingMax, 10));
+        Assert.assertEquals(10, missNum.missingNumber(missingMax, 10));
     }
 
     @Test
     public void testMissingNumber_MissingNone(){
-        assertEquals(0,missNum.missingNumber(missingNone,10));
+        Assert.assertEquals(0,missNum.missingNumber(missingNone,10));
     }
 
     @Test
     public void testMissingNumber_MissingSix(){
-        assertEquals(6, missNum.missingNumber(missingSix,10));
+        Assert.assertEquals(6, missNum.missingNumber(missingSix,10));
     }
     @Test
     public void testMissingNumber_MissingMin(){
-        assertEquals(1, missNum.missingNumber(missingMin, 10));
+        Assert.assertEquals(1, missNum.missingNumber(missingMin, 10));
     }
 }
